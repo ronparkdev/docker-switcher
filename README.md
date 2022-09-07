@@ -1,2 +1,7 @@
-# docker-swicher
-Docker switcher multi-platform application for managing multiple web services
+# docker-switcher
+
+
+
+### Resource references 
+<a href="https://www.flaticon.com/free-icons/docker" title="docker icons">Docker icons created by Freepik - Flaticon</a>
+<a href="https://www.flaticon.com/free-icons/refresh" title="refresh icons">Refresh icons created by Freepik - Flaticon</a>
