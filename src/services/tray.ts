@@ -13,6 +13,8 @@ const init = async (): Promise<void> => {
     .toBuffer()
     .then((buffer) => nativeImage.createFromBuffer(buffer))
 
+  console.log('ok', trayIcon)
+
   const tray = new Tray(trayIcon)
   tray.setToolTip('Hello World')
   tray.setTitle('hello')

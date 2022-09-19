@@ -6,7 +6,11 @@
     "removeComments": true,
     "strict": true,
     "baseUrl": "./src",
-    "paths": { "@images": ["./images"] },
+    "paths": { 
+      "@images/*": ["./images/*"], 
+      "@services/*": ["./services/*"], 
+      "@views/*": ["./views/*"] 
+    },
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true

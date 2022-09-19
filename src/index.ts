@@ -1,5 +1,6 @@
 import { app } from 'electron'
-import { TrayService } from 'services/tray'
+
+import { TrayService } from '@services/tray'
 
 app.on('ready', () => {
   if (process.platform === 'darwin') {

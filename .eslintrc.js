@@ -22,12 +22,7 @@ module.exports = {
         groups: ['builtin', 'external', 'internal', 'unknown', ['parent', 'sibling', 'index']],
         pathGroups: [
           {
-            pattern: 'share/**',
-            group: 'external',
-            position: 'after',
-          },
-          {
-            pattern: 'service/**',
+            pattern: '@{services, views, images}/**',
             group: 'external',
             position: 'after',
           },
