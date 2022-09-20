@@ -7,9 +7,10 @@
     "strict": true,
     "baseUrl": "./src",
     "paths": { 
-      "@images/*": ["./images/*"], 
-      "@services/*": ["./services/*"], 
-      "@views/*": ["./views/*"] 
+      "@images/*": ["./images/*"],
+      "@services/*": ["./services/*"],
+      "@views/*": ["./views/*"],
+      "@utils/*": ["./utils/*"]
     },
     "esModuleInterop": true,
     "skipLibCheck": true,

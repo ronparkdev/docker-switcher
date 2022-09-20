@@ -1,5 +1,6 @@
 import { app } from 'electron'
 
+import { DockerService } from '@services/docker'
 import { TrayService } from '@services/tray'
 
 app.on('ready', () => {
@@ -8,4 +9,8 @@ app.on('ready', () => {
   }
 
   void TrayService.init()
+
+  void DockerService.getContainers().then((containers) => console.log(containers))
+
+  void DockerService.stopAllByImageName('jp-smartstore-nginx-image')
 })

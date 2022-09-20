@@ -1,21 +1,13 @@
-import path from 'path'
+import { Tray } from 'electron'
 
-import { nativeImage, Tray } from 'electron'
-import sharp from 'sharp'
-
-const TRAY_ICON_WHITE = 'images/tray_icon_white.png'
+const TRAY_ICON_WHITE = 'build/images/tray_icon_white_s20.png'
 
 let globalTray: Tray | undefined
 
 const init = async (): Promise<void> => {
-  const trayIcon = await sharp(path.join(__dirname, TRAY_ICON_WHITE))
-    .resize(20)
-    .toBuffer()
-    .then((buffer) => nativeImage.createFromBuffer(buffer))
+  console.log(process.cwd())
 
-  console.log('ok', trayIcon)
-
-  const tray = new Tray(trayIcon)
+  const tray = new Tray(TRAY_ICON_WHITE)
   tray.setToolTip('Hello World')
   tray.setTitle('hello')
 

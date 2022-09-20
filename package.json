@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "clean": "rm -rf ./build",
-    "static": "copyfiles -f src/images/*.png build/images",
-    "open": "cross-env DEBUG=true electron ./build",
+    "build:static": "ts-node scripts/buildStatic.ts",
     "build:development": "cross-env PHASE=development webpack --config ./webpack.config.js",
     "build:production": "cross-env PHASE=production webpack --config ./webpack.config.js",
-    "start": "npm run clean && npm run build:development && npm run open",
+    "open": "cross-env DEBUG=true electron ./build",
+    "start": "npm run clean && npm run build:static && npm run build:development && npm run open",
     "deploy:xos": "npm run clean && npm run compile && electron-builder --mac"
   },
   "dependencies": {
@@ -21,7 +21,6 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.29.3",
     "@typescript-eslint/parser": "^4.29.3",
-    "copy-webpack-plugin": "^11.0.0",
     "copyfiles": "^2.4.1",
     "cross-env": "^7.0.3",
     "electron": "^17.1.2",
@@ -40,6 +39,7 @@
     "nodemon": "^2.0.15",
     "prettier": "^2.3.2",
     "ts-loader": "^9.3.1",
+    "ts-node": "^10.9.1",
     "tsc-watch": "^4.6.2",
     "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "^4.6.2",

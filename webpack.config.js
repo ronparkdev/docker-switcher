@@ -1,6 +1,5 @@
 const path = require('path')
 
-const CopyPlugin = require('copy-webpack-plugin')
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
 
 const phase = process.env.PHASE
@@ -14,20 +13,25 @@ module.exports = {
       {
         test: /\.ts$/,
         include: /src/,
-        use: [{ loader: 'ts-loader' }],
+        use: 'ts-loader',
       },
       {
         test: /\.node$/,
         use: 'node-loader',
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+          },
+        ],
       },
     ],
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js'],
     plugins: [
-      new CopyPlugin({
-        patterns: [{ from: path.resolve(__dirname, 'images') }],
-      }),
       new TsconfigPathsPlugin({
         configFile: path.resolve(__dirname, './tsconfig.json'),
       }),
@@ -35,7 +39,6 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
-    filename: 'electron.js',
+    filename: 'index.js',
   },
-  stats: 'verbose',
 }
